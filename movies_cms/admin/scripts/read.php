@@ -1,6 +1,7 @@
 <?php
 
 function getAll($tbl) {
+
     $pdo = Database::getInstance()->getConnection();
     $queryAll = 'SELECT * FROM '.$tbl;
     $results = $pdo->query($queryAll);
@@ -34,6 +35,12 @@ function getMoviesByFilter($args){
     $filterQuery .= ' AND t2,'.$args['col2'].' = t3,'.$args['col2'];
     $filterQuery .= ' AND t2.'.$args['col3'].' = t3,'.$args['filter'].'"';
 
-    // echo $filterQuery;
-    // exit;
+    echo $filterQuery;
+    exit;
+
+    if ($results) {
+        return $results;
+    }else{
+        return 'There was a problem accessing this info';
+    }
 }

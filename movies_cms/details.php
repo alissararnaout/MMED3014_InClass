@@ -28,6 +28,7 @@ if(isset($_GET['id'])){
             <h4>Year: <?php echo $row['movies_year'];?></h4>
             <p>Story:<br> <?php echo $row['movies_storyline'];?></p>
             <a href="index.php">Back...</a>
+    <?php endif;?>
         
     <?php include 'templates/footer.php';?>
 </body>

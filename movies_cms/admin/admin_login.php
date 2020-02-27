@@ -9,7 +9,7 @@
 
     if(!empty($username) && !empty($password)){
         // log user in
-        $message = login($username, $password);
+        $message = login($username, $password, $ip);
     }else{
         $message = 'Please fill out the required field';
         }
@@ -31,7 +31,7 @@
         <label for="username">Username:</label>
         <input type="text" name="username" id="username" value="">
 
-        <label for="">Password:</label>
+        <label for="password">Password:</label>
         <input type="password" name="password" id="password" value="">
 
         <button name="submit">Submit</button>
