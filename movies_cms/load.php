@@ -1,8 +1,7 @@
 <?php
-define('ABSPATH',__DIR__); #loading php  #double underscore indicates where the file actually is
-define('ADMIN_PATH', ABSPATH.'/admin');
-define('ADMIN_SCRIPT_PATH', ADMIN_PATH.'/scripts');
-
+define('ABSPATH', __DIR__);
+define('ADMIN_PATH', ABSPATH . '/admin');
+define('ADMIN_SCRIPT_PATH', ADMIN_PATH . '/scripts');
 
 ini_set('display_errors', 1);
 session_start();

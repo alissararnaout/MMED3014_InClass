@@ -1,4 +1,5 @@
 <?php
+
 function login($username, $password, $ip){
     $pdo = Database::getInstance()->getConnection();
     // step 1 - check if user exists, if not then don't bother checking for the password

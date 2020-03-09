@@ -28,7 +28,7 @@ if(isset($_GET['filter'])){
     <title>Welcome to the Movie CMS!</title>
 </head>
 <body>
-    <?php include 'templates/header.php';?>
+    <?php include 'templates/header.php' ;?>
     <?php while($row = $getMovies->Fetch(PDO::FETCH_ASSOC)):?>
     <div class="movie-item">
         <img src="images/<?php echo $row['movies_cover'];?>" alt="<?php echo $row['movies_title'];?>">

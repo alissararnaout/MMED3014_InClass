@@ -1,11 +1,11 @@
-<?php  # making sure to load the database and connection
+<?php
 require_once 'load.php';
 
-if(isset($_GET['id'])){
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $tbl = 'tbl_movies';
     $col = 'movies_id';
-    $getMovie = getSingleMovies($tbl, $col, $id);
+    $getMovie = getSingleMovie($tbl, $col, $id);
 }
 
 ?>
@@ -19,17 +19,18 @@ if(isset($_GET['id'])){
     <title>Details</title>
 </head>
 <body>
-    
-    <?php if(!is_string($getMovie));?>
-        <?php while($row = $getMovie->Fetch(PDO::FETCH_ASSOC));?>
-            <img src="images/<?php echo $row['movies_cover'];?>" alt="<?php echo $row['movies_title']?>">
+    <?php include 'templates/header.php';?>
+    <?php if (!is_string($getMovie)): ?>
+        <?php while ($row = $getMovie->fetch(PDO::FETCH_ASSOC)): ?>
+            <img src="images/<?php echo $row['movies_cover']; ?>" alt="<?php echo $row['movies_title'] ?>" />
 
-            <h2>Name: <?php echo $row['movies_title'];?></h2>
-            <h4>Year: <?php echo $row['movies_year'];?></h4>
-            <p>Story:<br> <?php echo $row['movies_storyline'];?></p>
+            <h2>Name: <?php echo $row['movies_title']; ?></h2>
+            <h4>Year: <?php echo $row['movies_year']; ?></h4>
+            <p>Story:<br> <?php echo $row['movies_storyline']; ?></p>
             <a href="index.php">Back...</a>
+        <?php endwhile;?>
     <?php endif;?>
-        
+
     <?php include 'templates/footer.php';?>
 </body>
 </html>
