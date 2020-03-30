@@ -1,6 +1,6 @@
 <?php
 
-function getAll($tbl) {
+function getAll($tbl) { 
 
     $pdo = Database::getInstance()->getConnection();
     $queryAll = 'SELECT * FROM '.$tbl;
@@ -36,9 +36,6 @@ function getMoviesByFilter($args){
     $filterQuery .= ' AND t2.' . $args['col3'] . ' = "' . $args['filter'] . '"';
 
     $results = $pdo->query($filterQuery);
-
-    echo $filterQuery;
-    exit;
 
     if ($results) {
         return $results;

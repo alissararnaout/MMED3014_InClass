@@ -45,6 +45,7 @@
         <?php endwhile;?>
 
         <button type="submit" name="submit">Edit Account</button>
+        <a href="admin_deleteuser.php?">Delete User</a><!--added this -->
     </form>
 </body>
 </html>

@@ -42,6 +42,19 @@ function getSingleUser($id){
     }
 }
 
+function getAllUsers(){
+    $pdo = Database::getInstance()->getConnection();
+
+    $get_user_query = 'SELECT * FROM tbl_user';
+    $users = $pdo->query($get_user_query);
+
+    if($users){
+        return $users;
+    }else{
+        return false;
+    }
+}
+
 function editUser($id, $fname, $username, $password, $email){
     // TODO: set up db connection
     $pdo = Database::getInstance()->getConnection();
@@ -68,3 +81,23 @@ function editUser($id, $fname, $username, $password, $email){
         return 'Guess you got canned...';
     }
 }
+
+function deleteUser($id){
+    $pdo = Database::getInstance()->getConnection();
+
+    $delete_user_query = 'DELETE FROM * tbl_user WHERE user_id = :id';
+    $delete_user_set = $pdo->prepare($delete_user_query);
+    $delete_user_result = $delete_user_set->execute(
+        array(
+            ':id'=>$id
+        )
+    );
+
+    //if everything went through, redirect to admin_deleteuser.php
+    // otherwise, return false
+    if($delete_user_result && $delete_user_set->rowCount() === 1){
+
+    }
+}
+
+?>
