@@ -6,16 +6,16 @@ confirm_logged_in();
 $genre_table = 'tbl_genre';
 $genres = getAll($genre_table);
 
-if(isset($_POST['submit'])){
+if(isset($_POST['submit'])) {
     $movie = array(
-        'cover'=>$_FILES['cover'],
-        'title'=>$_POST['title'],
-        'year'=>$_POST['year'],
-        'run'=>$_POST['run'],
-        'story'=>$_POST['story'],
-        'trailer'=>$_POST['trailer'],
-        'release'=>$_POST['release'],
-        'genre'=>$_POST['genList'],
+        'cover'  =>$_FILES['cover'],
+        'title'  =>trim($_POST['title']),
+        'year'   =>trim($_POST['year']),
+        'run'    =>trim($_POST['run']),
+        'story'  =>trim($_POST['story']),
+        'trailer'=>trim($_POST['trailer']),
+        'release'=>trim($_POST['release']),
+        'genre'  =>trim($_POST['genList']),
     );
 
     $result = addMovie($movie);
@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
 </head>
 <body>
 
-<?php echo !empty($message)?$message : ''; ?>
+<?php echo !empty($message) ? $message : ''; ?>
 <form action="admin_addmovie.php" method ="post" enctype="multipart/form-data"> <!-- have to add enctype when using file upload - otherwise won't transfer to server-->
     <label>Cover Image:</label>
     <input type="file" name="cover" value=""><br></br>

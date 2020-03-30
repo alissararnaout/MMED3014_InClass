@@ -2,6 +2,7 @@
     require_once '../load.php';
     confirm_logged_in();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@
 
     <a href="admin_addmovie.php">Add Movie</a>
 
-    <a href="admin_logout">Sign Out</a>
+    <a href="admin_logout.php">Sign Out</a>
 
 </body>
 </html>

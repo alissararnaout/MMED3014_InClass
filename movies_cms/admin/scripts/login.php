@@ -2,7 +2,7 @@
 
 function login($username, $password, $ip){
     $pdo = Database::getInstance()->getConnection();
-    // step 1 - check if user exists, if not then don't bother checking for the password
+    // check if user exists, if not then don't bother checking for the password
     $check_exist_query = 'SELECT COUNT(*) FROM tbl_user WHERE user_name= :username';
     $user_set = $pdo->prepare($check_exist_query);
     $user_set->execute(
@@ -44,21 +44,21 @@ function login($username, $password, $ip){
     }
 
     if(isset($id)){
-        redirect_to('index.php'); // exit from header right after
-    }
-
+        redirect_to('index.php');
     }else{
-        // user does not exist
-        $message = 'User does not exist';
+        $message = 'Wrong password!';
     }
+}else{
+    //User does not exist
+    $message = 'User does not exist';
+}
 
-
-    return $message;
+return $message;
 }
 
 function confirm_logged_in(){
     if(!isset($_SESSION['user_id'])){
-        redirect_to('admin_login.php');
+     redirect_to('admin_login.php');
     }
 }
 

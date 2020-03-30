@@ -3,7 +3,7 @@
 function getAll($tbl) { 
 
     $pdo = Database::getInstance()->getConnection();
-    $queryAll = 'SELECT * FROM '.$tbl;
+    $queryAll = 'SELECT * FROM ' .$tbl;
     $results = $pdo->query($queryAll);
 
     if($results){

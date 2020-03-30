@@ -2,14 +2,14 @@
     require_once '../load.php';
     confirm_logged_in();
 
-    $users = $getAllUsers();
+    $users = getAllUsers();
     if(!$users){
         $message = 'Failed to get user list';
     }
 
     if(isset($_GET['id'])){
         $user_id = $_GET['id'];
-        $delete_result = deleteUser($user_id); // this function delets the user
+        $delete_result = deleteUser($user_id);
 
         if(!$delete_result){
             $message = 'Failed to delete user';
@@ -43,7 +43,7 @@
                 <td><?php echo $user['user_id'];?></td>
                 <td><?php echo $user['user_name'];?></td>
                 <td><?php echo $user['user_email'];?></td>
-                <td><a href="admin_deleteuser.php?id=<?php echo $user['user_id'];?>">Test Delete</a></td>
+                <td><a href="admin_deleteuser.php?id=<?php echo $user['user_id'];?>">Delete</a></td>
             </tr>
         <?php endwhile;?>
         </tbody>

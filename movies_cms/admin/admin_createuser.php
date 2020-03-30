@@ -35,6 +35,7 @@ if(isset($_POST['submit'])){
         <input type="text" name="password" value=""><br><br>
         <label>Email</label>
         <input type="email" name="email" value=""><br><br>
+        
         <button name="submit">Create User</button>
     </form>
 
